@@ -1,0 +1,26 @@
+    <ion-view hide-nav-bar="true">
+    <ion-pane>
+      <div class="bar"><h2 class="title">Register</h2></div>
+
+      <ion-content class="padding has-subheader" ng-controller="RegisterController">
+      <form name="myform" novalidate ng-submit="register()">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
+          </label>
+          <p class="item item-text-wrap item-assertive" ng-show="myform.email.$invalid && myform.email.$touched">A valid email is required</p>
+
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true" ng-minlength="8">
+          </label>
+          <p class="item item-text-wrap item-assertive" ng-show="myform.password.$invalid && myform.password.$touched">Passwords must have at least 8 characters.</p>
+
+          <button class="button button-block button-positive" type="submit" ng-disabled="myform.username.$invalid || myform.firstname.$invalid || myform.lastname.$invalid || myform.email.$invalid || myform.password.$invalid">Sign Up</button>
+
+        </div>  <!-- end of list -->
+      </form>
+      </ion-content>
+    </ion-pane>
+    </ion-view>

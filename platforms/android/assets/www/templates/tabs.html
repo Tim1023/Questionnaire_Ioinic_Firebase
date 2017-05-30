@@ -1,0 +1,17 @@
+<ion-tabs class="tabs-icon-top tabs-positive" ng-controller="LoginController">
+  <ion-tab icon="ion-home" title="Home" href="#/tab/home">
+    <ion-nav-view name="home"></ion-nav-view>
+  </ion-tab>
+  <ion-tab hidden="{{currentUser !== null}}" icon="ion-person-add" title="Register" href="#/tab/register">
+    <ion-nav-view name="register-form"></ion-nav-view>
+  </ion-tab>
+  <ion-tab hidden="{{currentUser !== null}}" icon="ion-person" title="Login" href="#/tab/login">
+    <ion-nav-view name="login"></ion-nav-view>
+  </ion-tab>
+  <ion-tab hidden="{{currentUser === null}}" icon="ion-gear-a" title="Questionnaire" href="#/tab/categories">
+    <ion-nav-view name="categories"></ion-nav-view>
+  </ion-tab>
+  <ion-tab hidden="{{adminUser !==   true}}" icon="ion-gear-a" title="App" href="#/tab/app">
+    <ion-nav-view name="app"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

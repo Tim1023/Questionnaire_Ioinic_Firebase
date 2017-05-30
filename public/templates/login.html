@@ -1,0 +1,41 @@
+<ion-view hide-nav-bar="true">
+<ion-pane>
+  <ion-header-bar class="bar-positive" ng-controller="LoginController">
+    <a class="button button-clear icon icon-top ion-power" ng-show="currentUser" ng-click="logout()" href="#/tab/home"></a>
+    <h1 class="title">Questionnaire App</h1>
+    <a class="button button-clear icon ion-gear-a" ng-show="currentUser" href="#/tab/app"></a>
+    
+  </ion-header-bar>
+  <div class="bar bar-subheader"><h1 class="title">Log-in</h1></div>
+  <ion-content class="padding has-subheader" ng-controller="LoginController">
+    <form name="myform" novalidate
+    ng-submit="login()" ng-hide="currentUser">
+      <div class="list list-inset">
+        
+         <label class="item item-input">
+            <span class="input-label">Email</span>
+              <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
+          </label>
+          <p class="item item-text-wrap item-assertive" ng-show="myform.email.$invalid && myform.email.$touched">Valid email required</p>
+
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true" ng-minlength="8">
+          </label>
+          <p class="item item-text-wrap item-assertive" ng-show="myform.password.$invalid && myform.password.$touched">Password must be at least 8 characters long.</p>
+        
+
+        <button class="button button-block button-positive" type="submit" 
+        ng-disabled="myform.email.$invalid || myform.password.$invalid">Sign In</button>
+      </div>
+    </form>
+    <div class="list list-inset"  ng-show="data.message">
+      <div class="item item-word-wrap item-icon-left">
+        <i class="icon ion-information-circled"></i>
+        <p class="attention">{{data.message}}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-pane>
+</ion-view>
+

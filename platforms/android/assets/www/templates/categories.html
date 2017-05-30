@@ -1,0 +1,75 @@
+<ion-view hide-nav-bar="true">
+  <ion-pane>
+  <ion-header-bar class="bar-positive">
+    <!--<a class="button button-clear icon ion-gear-a"ng-href="#/tab/app"> Add Item</a>-->
+    <h1 class="title">Questionaire</h1>
+    <a class="button button-clear icon icon-top ion-power" ng-show="currentUser" ng-click="logout()" href="#/tab/home"></a>
+  </ion-header-bar>
+  <ion-content class="padding" ng-controller="QuestionnairesController">
+    <!--<select ng-model="myVar">-->
+      <!--<option value="product">Product-->
+      <!--<option value="service">Service-->
+      <!--<option value="relationship">Relationship-->
+    <!--</select>-->
+    <hr>
+    <!--<div ng-switch="myVar">-->
+      <!--<div ng-switch-when="product">-->
+        <!--<h1>Product</h1>-->
+        <!--<p>This is Product Introduction</p>-->
+
+        <!--<form name="answerform" novalidate-->
+              <!--ng-submit="addAnswers()">-->
+        <!--<ion-list >-->
+         <!--<ion-item class="item" ng-repeat="(key, questionnaire) in data.questions.questions">-->
+          <!--<p>{{questionnaire.question}}</p>-->
+           <!--<textarea type="text"  ng-model="interpretation[key]" ng-required="true"></textarea>-->
+         <!--</ion-item>-->
+
+        <!--</ion-list>-->
+        <!--<button type="submit" class="button button-block button-positive"-->
+                <!--ng-disabled="myform.$invalid">Submit</button>-->
+        <!--</form>-->
+      <!--</div>-->
+      <!--<div ng-switch-when="service">-->
+        <!--<h1>Service</h1>-->
+        <!--<p>This is Service Introduction</p>-->
+        <!--<ion-item class="item" ng-repeat="(key, questionnaire) in data.questions.questions">-->
+          <!--<textarea type="text"  ng-model="interpretation[key]" ng-required="true"></textarea>-->
+
+        <!--<p>{{questionnaire.question}}</p>-->
+
+      <!--</div>-->
+      <!--<div ng-switch-when="relationship">-->
+        <!--<h1>Relationship</h1>-->
+        <!--<p>This is Service Introduction</p>-->
+        <!--<ion-item class="item" ng-repeat="(key, questionnaire) in data.questions.questions">-->
+
+        <!--<p>{{questionnaire.question}}</p>-->
+
+      <!--</div>-->
+      <!--<div ng-switch-default>-->
+        <!--<h1>Switch</h1>-->
+        <!--<p>Select questionnaire from the dropdown, to switch the content.</p>-->
+        <!--<textarea type="text"  ng-model="interpretation[key]" ng-required="true"></textarea>-->
+
+      <!--</div>-->
+    <!--</div>-->
+
+    <form name="answerform" novalidate
+          ng-submit="addAnswers()">
+      <ion-list >
+        <ion-item class="item" ng-repeat="(key, questionnaire) in data.questions.questions">
+          <p>{{questionnaire.question}}</p>
+          <textarea type="text"  ng-model="interpretation[key]" ng-required="true"></textarea>
+        </ion-item>
+
+      </ion-list>
+      <button type="submit" class="button button-block button-positive"
+              ng-disabled="myform.$invalid">Submit</button>
+    </form>
+
+    <hr>
+
+  </ion-content>
+  </ion-pane>
+</ion-view>

@@ -1,0 +1,58 @@
+  <ion-view hide-nav-bar="true">
+  <ion-pane>
+  <ion-header-bar class="bar-positive">
+    <a class="button button-clear ion-ios-arrow-back"  href="#/tab/login"> Back</a>
+    <h1 class="title">Questionnaire App</h1>
+    <a class="button button-clear icon ion-navicon" href="#/tab/categories"></a>
+  </ion-header-bar>
+  <ion-content class="padding" ng-controller="AppController">
+    <ion-list>
+      <ion-item class="item item-divider">
+        Questionnaires
+      </ion-item>
+      <ion-item class="item-text-wrap">
+          <p>Add Questionnaire</p>
+        </ion-item>
+        <ion-item>
+          <form name="myform" novalidate
+           ng-submit="addQuestionnaire()">
+            <label class="item item-input item-select">
+              <div class="input-label">Category</div>
+              <select name="category" ng-model="data.category.selectedcategory" ng-required="true">
+                <option value="{{cate.name}}" ng-repeat="cate in data.category">{{cate.name}}</option>
+              </select>
+            </label>
+            <p ng-show="myform.category.$invalid && myform.category.$touched">Please pick a category.</p>
+
+            <ion-item class="item item-input">
+              <span class="input-label">Question</span>
+              <input type="text" name="headline" placeholder="Type your question in here" ng-model="data.questions.newquestion.newquestion" ng-required="true">
+            </ion-item>
+             <p class="item item-text-wrap item-assertive" ng-show="myform.question.$invalid && myform.question.$touched">150 characters max.Please provide question.</p>
+
+
+           <button type="submit" class="button button-block button-positive"
+           ng-disabled="myform.$invalid">Submit</button>
+      </form>
+      </ion-item>
+      <ion-item class="item item-divider">
+        Your Questionnaires
+      </ion-item>
+      <ion-item>
+        <ion-item class="item-button-right" ng-repeat="(key, questionnaire) in data.questions.questions">
+          {{questionnaire.question}}
+         <button class="item-button"
+                 ng-click="openModal(key)">
+
+           <i class="icon ion-calendar "></i>
+         </button>
+            <button class="button button-assertive"
+          ng-click="deleteQuestionnaire(key, questionnaire)">
+          <i class="icon ion-minus-circled"></i>
+          </button>
+        </ion-item>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </ion-pane>
+</ion-view>
